@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body bgcolor="black">
+    <noscript>
+        <center>
+        <font color="red" size="6px" style="font-family: sans-serif;">Включите JavaScript</font>
+        </center>
+    </noscript>
+    <script>
+        function notadeveloper() {
+            alert("извините для вас это страница недоступна \nпричина: вы не разработчик")
+        }
+    </script>
+    <style>
+        .shutd {
+            position: absolute;
+            transform: translate(-50%, -50%); 
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            color: orange;
+            font-family: sans-serif;
+            /*user-select: none;
+            display: none; */
+        }
+        .buttton1 {
+            position: absolute;
+            transform: translate(-155%, 359%); 
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            color: orange;
+            font-family: sans-serif;
+            /*user-select: none;
+            display: none; */
+        }
+        .buttton2 {
+            position: absolute;
+            transform: translate(-5%, 359%); 
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            color: orange;
+            font-family: sans-serif;
+            /*user-select: none;
+            display: none; */
+        }
+    </style>
+    <div id="screen"></div>
+    <div id="shutd">
+        <h1 class="shutd">это страница только для разработчиков<br/>вопрос: вы разработчик?</h1>
+    </div>
+    <div class="buttons">
+        <button class="buttton1">Да, я разработчик</button> <button class="buttton2" onclick="notadeveloper()">Нет, я не разработчик</button>
+    </div>
+</body>
+</html>

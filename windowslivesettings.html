@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:web xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr" class="liveApp la_fr lo_fr">
+<head>
+  <link rel="icon" type="image/x-icon" href="livesearch_files/logo.png">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<title>Live Search</title>
+	<link rel="canonical" href="http://live.com/settings.html" />
+	<link rel="stylesheet" type="text/css" media="screen, print, projection, tv" href="https://iswindowslive.neocities.org/live/1.900.9.015/css/searchlanding.css"/>
+	<link rel="stylesheet" type="text/css" media="screen, print, projection, tv" href="livesearch_files/settings.css"/>
+<link title="Live Search" type="application/opensearchdescription+xml" rel="search" href="http://www.live.com/live/search/search.xml"/>	
+</head>
+<body>
+<script>
+window["Live"] = {Themes:{ThemeUrl:"http://shared.live.com/YcvhPU-eSW1qyTcZzUfVZALWFbwr73KlzsNQfXhmJ1T94Y4d6JMfrA/BaseLite/35448/"},Header:{Settings:{TemplateUrl:'http://shared.live.com/FoVGagfnUyxal6VUCxROQMfgwSLlIFlr/'}},FakeJewelData:{ImgBaseUrl:"http://stc.live.com/live/1.900.9.015/img/",Market:"fr-fr"}};
+function flag_pl(){pl = true;window.detachEvent('onload', flag_pl);}
+var pl = false;
+if (window.attachEvent){window.attachEvent('onload', flag_pl);}else {pl = true;}
+var jmenu = null;
+var jhover = false;
+function attach_menu()
+{
+	if (!pl){setTimeout(attach_menu, 50);return;}
+	if (!jmenu)
+	{
+		jmenu = document.createElement("script");
+		jmenu.src = "live/1.900.9.015/js/JewelMenu.js";
+		document.body.appendChild(jmenu);
+	}		
+}
+</script>
+<div style="display:none"><img src="livesearch_files/search_go.gif"></img><img src="livesearch_files/HeaderGradientImage.png"></img></div>
+<div id="header" onmouseover="attach_menu();">
+<div class="inside">
+<div class="BrandSection" id="brand"><a class="jewel" href="#" onclick="return false;" onmouseover="jhover=true;" onmouseout="jhover=false;"><span style="display:none;">More services</span><img src="livesearch_files/logo.png" width="42" height="42"></a>
+<span class="Product"> Windows Live<span class="tm">&trade;</span></span>
+<div id="headerMarket"></div>
+<br/>
+<div style="position: absolute;" id="mainmenu" class="Menu"> </div>
+</div>
+<div id="ppToolBar">
+			<a id="logoTag" href="#">
+				<span id="signIn" onclick="toggleSignInText()">Зарегистрироваться на сайте</span>
+				<img id="signInImg" onclick="toggleSignInText()" src="livesearch_files/pp.gif" height="22px" width="22px"/>
+			</a>
+</div>
+<div style="clear: both;"> </div>
+</div>
+</div>
+
+<style>
+
+.jewel img {
+    margin-top: 1.7px; /* Adjust the top margin to move the image lower */
+    margin-left: 3px; /* Adjust the left margin to move the image to the right */
+/* 	filter: hue-rotate(+0.45555turn); */
+	border-radius: 50%; /* Make the div a circle */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Create a circular shadow */
+}
+/*body {
+  background-image: url(../flags5live/livesearch_files/ErrorTextures.png);
+} */
+
+</style>
+
+<div id="searchBar">
+  <form id="searchform" name="searchform" action="#" onsubmit="submitForm(); return false;">
+    <label for="q">Taper le terme recherché</label>
+    <label for="go"> Rechercher </label>
+    <span class="sc">
+      <input class="q" id="q" name="q" value="">
+      <input name="mkt" value="fr-fr" type="hidden">
+      <input name="FORM" value="LIVSOP" type="hidden">
+      <input name="go" id="go" class="go" src="livesearch_files/search_go.gif" value="Search" align="middle" type="image">
+    </span>
+  </form>
+</div>
+	<noscript>
+	<style>#settingsContainer{visibility:hidden;}</style>
+	<center>
+	<font size="4px" color="red">Включите JavaScript</font>
+	</center>
+	</noscript>
+
+<script>document.getElementById("q").focus();</script>
+<img class="cgif" width="1" height="1" alt="" src="c-sub/c_gif-DI-6734-PI-93253-PS-94592-TP-/settings.aspx-RF-/.gif"/>
+<div id="settingsContainer">
+    <a id="changetext" href="search-sub/settings.html">Измените настройки поиска...</a>
+    <p id="selectext">Выберите предпочтительную поисковую систему.</p>
+    <form>
+        <ul>
+            <li>
+                <input type="radio" name="searchEngine" id="Windows Live" value="Windows Live" checked />
+                <label for="Windows Live">Windows Live</label>
+            </li>
+            <li>
+                <input type="radio" name="searchEngine" id="google" value="google" />
+                <label for="google">Google</label>
+            </li>
+            <li>
+                <input type="radio" name="searchEngine" id="yahoo" value="yahoo" />
+                <label for="yahoo">Yahoo!</label>
+            </li>
+		<li>
+                <input type="radio" name="searchEngine" id="nigma" value="nigma" disabled/>
+                <label for="nigma">Nigma</label>
+            </li>
+        </ul>
+        <input type="button" onclick="saveSettings()" id="savebutton" value="Сохранить" class="fancyButton fancyButtonHover" />
+        <br><br><br><br>
+        <input type="button" value="Удалить аккаунт" class="fancyButton fancyButtonHover beta" style="color:rgb(255, 255, 255)"/>
+		<input type="button" value="Ресетнуть данные" class="fancyButton fancyButtonHover beta2" style="color:rgb(255, 255, 255)"/>
+    </form>
+</div>
+<style>
+  .beta {
+    background-image: url(../flags5live/livesearch_files/ErrorTextures.png);
+  }
+  .beta2 {
+	background-image: url(../flags5live/livesearch_files/Debugempty.png);
+  }
+  // Get the search engine value from the selected radio button's id
+  var selectedSearchEngine = selectedEngine ? selectedEngine.id : 'default';
+
+  // Store the selected search engine preference in localStorage
+  localStorage.setItem('selectedSearchEngine', selectedSearchEngine);
+
+  // Optionally, display a confirmation to the user
+  alert('Search engine saved: ' + selectedSearchEngine);
+}
+
+// Function to retrieve and set the selected search engine preference
+function setSavedSearchEngine() {
+  // Retrieve the selected search engine preference from localStorage
+  var savedSearchEngine = localStorage.getItem('selectedSearchEngine');
+
+  // Set the selected search engine based on the retrieved value
+  if (savedSearchEngine) {
+    document.getElementById(savedSearchEngine).checked = true;
+  }
+}
+
+// Call the function to set the saved search engine preference on page load
+setSavedSearchEngine();
+
+// Function to submit the form with the selected search engine
+function submitForm() {
+  var searchform = document.getElementById('searchform');
+  var searchQuery = document.getElementById('q').value;
+  var selectedEngine = document.querySelector('input[name="searchEngine"]:checked'); // Get the selected radio button again
+
+  // Check if the search query is empty
+  if (!searchQuery) {
+    alert('Please enter a search query.');
+    return;
+  }
+
+  // Construct the search URL based on the selected search engine
+  var searchUrl = 'http://' + (selectedEngine ? selectedEngine.id : 'default') + '.com/search?q=' + encodeURIComponent(searchQuery);
+
+  searchform.action = searchUrl;
+  searchform.submit();
+}
+
+// Attach an event listener to the search form to submit it when Enter is pressed
+document.getElementById('q').addEventListener('keydown', function (e) {
+  if (e.key === 'Enter') {
+    submitForm();
+  }
+});
+
+var isSignInText = true;
+
+document.addEventListener('DOMContentLoaded', function () {
+    var signInText = document.getElementById('signIn');
+    signInText.addEventListener('click', toggleSignInText);
+});
+
+function toggleSignInText() {
+    var signInText = document.getElementById('signIn');
+
+    if (isSignInText) {
+        signInText.textContent = "это можно сделать через сайт live.old.system.zwindows.org/login.php";
+    } else {
+        signInText.textContent = "Зарегистрироваться на сайте";
+    }
+
+    isSignInText = !isSignInText;
+}
+
+function toggleFeedback() {
+    var signInText = document.getElementById('feedback');
+
+    if (isSignInText) {
+        signInText.textContent = "nilitalamb на Github";
+    } else {
+        signInText.textContent = "Отзыв";
+    }
+
+    isSignInText = !isSignInText;
+}
+</script>
+
+
+
+
+
+<div id="footer" class="footer">
+	<div>
+		<a id="privacytext" href="">Privacy</a>
+		| 
+		<a id="legaltext" href="E:\html\flags 5\privacy.html">Legal</a>
+		|
+		<a id="adtext" href="hhttp://advertising.microsoft.com/">Advertise</a>
+		| 
+		<a id="feedback" href="#" onclick="toggleFeedback()">Feedback</a>
+		| 
+		<a id="helptext" href="https://support.microsoft.com/en-us">Help</a>
+	</div>
+  <div dir="ltr">©2024 Flags5</div>
+  <div dir="ltr">©2024 Ностальгические Сайты Рунета</div>
+</div>
+<div style="display:none;">
+<!-- SiteCatalyst code version: H.1.
+Copyright 1997-2005 Omniture, Inc. More info available at
+http://www.omniture.com -->
+<script language="javascript">var s_account="msnportallive";</script>
+<script language="JavaScript" src="stj-sub/live/extern/omniture/s_code.js"></script>
+<script language="JavaScript"><!--
+/* You may give each page an identifying name, server, and channel on
+the next lines. */
+s.pageName="portal:live.com|Settings"
+s.channel="Live"
+s.prop1="Live.com"
+s.prop2="fr-fr"
+s.prop7="initialpageview"
+s.prop22="False"
+s.prop27="False"
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+<script language="JavaScript"><!--
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+//--></script><noscript><img src="b/ss/msnportallive/1/H.1--NS/0.jpg" height="1" width="1" border="0" alt=""/></noscript><!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.1. -->
+ <script language="JavaScript"> 
+function clearS()
+{
+	var props = ["pageName","channel","prop1","prop2","prop5","prop6","prop7","prop30","prop31","prop37","prop38","prop39","prop40","prop41","prop43","prop44","prop45"];
+	for (var i=0; i<props.length; i++)
+	{
+		s[props[i]] = null;
+	}
+}
+function r_om(id, cmp, act, props, syn, pv)
+{
+	function lower(val)
+	{
+		return typeof(val)=="string" ? val.toLowerCase() : val;
+	}
+	function sProp(sProp, prop)
+	{
+		var val = props[prop];
+		if (typeof(val) != "undefined")
+			s[sProp] = lower(val);
+	}
+	clearS();
+	s.pageName=(pv?"":"link:")+"portal:live.com|Settings";
+	s.channel="Live";
+	s.prop1="Live.com";
+	s.prop2="fr-fr";
+	s.prop5=lower(id);
+	s.prop6=lower(cmp);
+	s.prop7=lower(act);
+	if (props)
+	{
+		sProp("prop30", "p1");
+		sProp("prop31", "p2");
+		sProp("prop37", "p3");
+		sProp("prop38", "p4");
+		sProp("prop39", "p5");
+		sProp("prop40", "p6");
+		sProp("prop41", "p7");
+		sProp("prop43", "p8");
+		sProp("prop44", "p9");
+		sProp("prop45", "p10");
+	}
+	if (syn)
+		s.tl();
+	else
+		s.t();
+}
+</script>
+</div>
+</body>
+</html>

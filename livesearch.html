@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:web="" xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" class="liveApp la_en lo_us"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Live Search</title>
+    <link rel="icon" type="image/x-icon" href="./livesearch_files/logo.png">
+    <link rel="canonical" href="http://live.com/">
+     
+    <link rel="stylesheet" type="text/css" media="screen, print, projection, tv" href="https://iswindowslive.neocities.org/live/1.900.9.007/css/searchlanding.css">
+
+<style>
+
+body {
+/* filter: hue-rotate(-0.45555turn);*\
+  font-size: 11px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #2f748a;
+}
+
+#searchform .go {
+    border: 1px solid #4b7c9f;
+    height: 20px;
+    width: 23px;
+    margin-left: -10px;
+	vertical-align: middle;
+}
+
+.container {
+    position: relative;
+    width: 400px; /* Set the width of your container */
+    height: 300px; /* Set the height of your container */
+}
+  
+.gif {
+    position: absolute;
+	filter: hue-rotate(+0.45555turn);
+    width: 300px; /* Set the width of your GIF */
+    height: auto; /* Automatically calculate the height to maintain the aspect ratio */
+    opacity: 0.5;
+}
+
+.jewel img {
+    margin-top: 1.7px; /* Adjust the top margin to move the image lower */
+    margin-left: 3px; /* Adjust the left margin to move the image to the right */
+/* 	filter: hue-rotate(+0.45555turn); */
+	border-radius: 50%; /* Make the div a circle */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Create a circular shadow */
+}
+
+
+.Product {
+    margin-right: 10px; 
+}
+</style>
+
+</head>
+<body>
+<div style="display:none"><img src="./livesearch_files/search_go.gif"><img src="./livesearch_files/HeaderGradientImage.png"></div>
+<div id="header" onmouseover="attach_menu();">
+    <div class="inside">
+        <div class="BrandSection" id="brand"><a class="jewel" href="#" onclick="return false;" onmouseover="jhover=true;" onmouseout="jhover=false;"><span style="display:none;">More services</span><img src="./livesearch_files/logo.png" width="42" height="42"></a>
+            <span class="Product"> ZWindows Live<span class="tm">™</span></span>
+            <div id="headerMarket"></div>
+            <br>
+            <div style="position: absolute;" id="mainmenu" class="Menu"> </div>
+        </div>
+        <div id="ppToolBar">
+			<a id="logoTag" href="#">
+				<span id="signIn" onclick="toggleSignInText()">Зарегистрироваться на сайте</span>
+				<img id="signInImg" onclick="toggleSignInText()" src="./livesearch_files/pp.gif" height="22px" width="22px">
+			</a>
+        </div>
+        <div style="clear: both;"> </div>
+    </div>
+</div>
+<img class="cgif" width="1" height="1" alt="" src="./livesearch_files/gif">
+<div id="toolbar">
+    <a href="#">Options</a>
+</div>
+<noscript><style>#toolbar{visibility:hidden;}</style></noscript>
+<div id="search">
+    <h1 id="searchLandingTitle">Live Search</h1>
+    <div id="searchBar">
+        <form id="searchform" name="searchform" action="#" onsubmit="submitForm(); return false;">
+            <label for="q">Type search term</label><label for="go"> Search </label><span class="sc">
+            <input class="q" id="q" name="q" value=""><input name="mkt" value="en-us" type="hidden">
+            <input name="FORM" value="LIVSOP" type="hidden">
+            <input name="go" id="go" class="go" src="./livesearch_files/search_go.gif" value="Search" align="middle" type="image">
+            </span>
+        </form>
+    </div>
+    <ul id="scopes" class="scopes">
+        <li class="selected" id="web"><a href="#" onclick="selectScope(&#39;web&#39;);">Веб</a></li>
+        <li id="images"><a href="#" onclick="selectScope(&#39;images&#39;);">Картинки</a></li>
+        <li id="news"><a href="#" onclick="selectScope(&#39;news&#39;);">Новости</a></li>
+        <li id="maps"><a href="#" onclick="selectScope(&#39;maps&#39;);">Карты</a></li>
+        <li id="classifieds"><a href="#" onclick="selectScope(&#39;classifieds&#39;);">Магазин</a></li>
+        <li id="copyproject"><a href="copyproject.html" onclick="selectScope(&#39;copyproject&#39;);">Копировать Проект</a></li>
+    </ul>
+    <p class="msg"><a href="https://www.msn.com/en-us/shopping">Find great autumn styles for him and her at "Flags5" Shopping</a></p>
+</div>
+
+ <script>
+        // JavaScript code to open the pop-up
+        document.getElementById('toolbar').addEventListener('click', function () {
+            // Open the pop-up window
+            window.open('windowslivesettings.html', 'Popup', 'width=1000,height=500');
+        });
+    </script>
+
+<script>
+// Function to retrieve the saved search engine preference from localStorage
+function getSavedSearchEngine() {
+  return window.localStorage.getItem('selectedSearchEngine') || 'bing'; // Default to 'bing'
+}
+
+// Function to handle scope selection and update the UI
+function selectScope(scope) {
+  var scopes = document.querySelectorAll('.scopes li');
+  scopes.forEach((item) => {
+    item.classList.remove('selected');
+  });
+
+  var selectedScope = document.getElementById(scope);
+  selectedScope.classList.add('selected');
+  window.localStorage.setItem('selectedScope', scope); // Save selected scope to local storage
+}
+
+// Retrieve the selected scope from local storage and set it
+document.addEventListener("DOMContentLoaded", function() {
+  var savedScope = window.localStorage.getItem('selectedScope');
+  if (savedScope) {
+    selectScope(savedScope);
+  }
+});
+
+// Attach an event listener to the settings link to open the settings page
+document.getElementById('settingsLink').addEventListener('click', function (e) {
+  e.preventDefault();
+  window.open('settings.html', 'Popup', 'width=1000,height=500');
+});
+
+// Retrieve the selected scope from local storage and set it
+var savedScope = window.localStorage.getItem('selectedScope');
+if (savedScope) {
+  selectScope(savedScope);
+}
+
+function submitForm() {
+  var selectedScope = document.querySelector('.scopes .selected').id;
+  var searchQuery = document.getElementById('q').value;
+  var searchEngine = getSavedSearchEngine();
+
+  if (searchEngine === 'bing') {
+    // Redirect to Bing's search based on scope
+    if (selectedScope === 'web') {
+      window.location.href = 'https://www.bing.com/search?q=' + encodeURIComponent(searchQuery);
+    } else if (selectedScope === 'images') {
+      window.location.href = 'https://www.bing.com/images/search?q=' + encodeURIComponent(searchQuery);
+    } else if (selectedScope === 'maps') {
+      window.location.href = 'https://www.bing.com/maps?q=' + encodeURIComponent(searchQuery);
+    } else if (selectedScope === 'news') {
+      window.location.href = 'https://www.bing.com/news/search?q=' + encodeURIComponent(searchQuery);
+    } else if (selectedScope === 'classifieds') {
+      window.location.href = 'https://www.bing.com/shop?q=' + encodeURIComponent(searchQuery) ;
+    } else {
+      // Handle other scopes for Bing
+    }
+  } else if (searchEngine === 'google') {
+    // Redirect to Google's search based on scope
+    if (selectedScope === 'web') {
+      window.location.href = 'https://www.google.com/search?q=' + encodeURIComponent(searchQuery);
+    } else if (selectedScope === 'images') {
+      window.location.href = 'https://www.google.com/search?q=' + encodeURIComponent(searchQuery) + '&tbm=isch';
+    } else if (selectedScope === 'maps') {
+      window.location.href = 'https://www.google.com/maps/search/' + encodeURIComponent(searchQuery);
+    } else if (selectedScope === 'news') {
+      window.location.href = 'https://news.google.com/search?q=' + encodeURIComponent(searchQuery);
+    } else if (selectedScope === 'classifieds') {
+      window.location.href = 'https://www.google.com/search?q=' + encodeURIComponent(searchQuery) + '&tbm=shop' ;
+    } else {
+      // Handle other scopes for Google
+    }
+  } else if (searchEngine === 'yahoo') {
+    if (selectedScope === 'maps' && searchQuery === '') {
+      // Redirect to Yahoo Maps page without any search terms
+      window.location.href = 'https://en.wikipedia.org/wiki/Yahoo!_Maps';
+    } else {
+      // Redirect to Yahoo's search based on scope
+      if (selectedScope === 'web') {
+        window.location.href = 'https://search.yahoo.com/search?p=' + encodeURIComponent(searchQuery);
+      } else if (selectedScope === 'images') {
+        window.location.href = 'https://images.search.yahoo.com/search/images?p=' + encodeURIComponent(searchQuery);
+      } else if (selectedScope === 'maps') {
+        // Handle maps differently if there's a search query
+        window.location.href = 'https://en.wikipedia.org/wiki/Yahoo!_Maps' ;
+      } else if (selectedScope === 'news') {
+        window.location.href = 'https://news.search.yahoo.com/search/news?p=' + encodeURIComponent(searchQuery);
+      } else if (selectedScope === 'classifieds') {
+        window.location.href = 'https://shopping.yahoo.com/search?p=' + encodeURIComponent(searchQuery) + '&renderBySimilarity=1' ;
+      } else {
+        // Handle other scopes for Yahoo
+      }
+    }
+  }
+ 
+  } else if (searchEngine === 'nigma') {
+    if (selectedScope === 'maps' && searchQuery === '') {
+      // Redirect to Yahoo Maps page without any search terms
+      window.location.href = 'https://en.wikipedia.org/wiki/Yahoo!_Maps';
+    } else {
+      // Redirect to Yahoo's search based on scope
+      if (selectedScope === 'web') {
+        window.location.href = 'https://nigma.net.ru/index.php?query=' + encodeURIComponent(searchQuery);
+      } else if (selectedScope === 'images') {
+        window.location.href = 'https://www.nigma.net.ru/gallery.php?query=' + encodeURIComponent(searchQuery);
+      } else if (selectedScope === 'maps') {
+        // Handle maps differently if there's a search query
+        window.location.href = 'https://en.wikipedia.org/wiki/Yahoo!_Maps' ;
+      } else if (selectedScope === 'news') {
+        window.location.href = 'https://news.search.yahoo.com/search/news?p=' + encodeURIComponent(searchQuery);
+      } else if (selectedScope === 'classifieds') {
+        window.location.href = 'https://shopping.yahoo.com/search?p=' + encodeURIComponent(searchQuery) + '&renderBySimilarity=1' ;
+      } else {
+        // Handle other scopes for Yahoo
+      }
+    }
+  }
+  return false;
+}
+
+var isSignInText = true;
+
+document.addEventListener('DOMContentLoaded', function () {
+    var signInText = document.getElementById('signIn');
+    signInText.addEventListener('click', toggleSignInText);
+});
+
+function toggleSignInText() {
+    var signInText = document.getElementById('signIn');
+
+    if (isSignInText) {
+        signInText.textContent = "это можно сделать через сайт live.old.system.zwindows.org/login.php";
+    } else {
+        signInText.textContent = "Зарегистрироваться на сайте";
+    }
+
+    isSignInText = !isSignInText;
+}
+
+function toggleFeedback() {
+    var signInText = document.getElementById('feedback');
+
+    if (isSignInText) {
+        signInText.textContent = "nilitalamb на Github";
+    } else {
+        signInText.textContent = "Отзыв";
+    }
+
+    isSignInText = !isSignInText;
+}
+</script>
+
+
+<div id="warningText"></div>
+<div id="footer" class="footer">
+    <div>
+        <a href="E:\html\flags 5\privacy.html">Конфиденциальность</a>
+        | 
+        <a href="https://www.microsoft.com/en-us/legal">Юридический</a>
+        |
+        <a href="http://advertising.microsoft.com/">Рекламировать</a>
+        | 
+        <a id="feedback" href="#" onclick="toggleFeedback()">Отзыв</a>
+        | 
+        <a href="https://support.microsoft.com/en-us">Помощь</a>
+    </div>
+    <div dir="ltr">©2024 Flags5</div>
+    <div dir="ltr">©2024 Ностальгические Сайты Рунета</div>
+</div>
+
+<div class="container">
+    <img src="./livesearch_files/halloween.gif" class="gif" style="bottom: 50px; left: 20px; opacity: 0;">
+</div>
+
+
+
+</body></html>
